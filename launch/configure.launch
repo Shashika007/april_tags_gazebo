@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+
+  	<!-- start up wg world -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch"> </include>
+
+  	<arg name="model" default="$(find april_tags_gazebo)/urdf/mesh1.urdf"/>
+  	<param name="robot_description" command="$(find xacro)/xacro.py $(arg model)" />
+
+
+	 <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -z 0.1 -model robot_model" respawn="false" output="screen" />
+
+
+</launch>
+

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<robot 
+	name="tag_box_3">
+  <!-- tag box -->
+  <link name="tag_box_3">
+   <inertial>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <mass value="1.0" />      
+            <inertia ixx="0.047"  ixy="0"  ixz="0" iyy="0.058" iyz="0" izz="0.08" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+	<box size="0.2 0.2 0.2"/>
+      </geometry>
+    </collision>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://april_tags_gazebo/meshes/tag3.dae"/>
+      </geometry>
+    </visual>
+</link>
+    
+    <gazebo reference="tag_box_3">
+          <mu1 value="0.1"/>
+          <mu2 value="0.1"/>
+          <kp value="100000.0" />
+          <kd value="100000.0" />
+          <fdir1>1 0 0</fdir1>
+      </gazebo>
+
+</robot>

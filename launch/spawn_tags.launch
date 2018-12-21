@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<launch>
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch"> </include>
+	<!-- tag1 -->
+    <arg name="x" default="0.5"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.1"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="0.0"/>
+
+    <arg name="urdf_tag_file" default="$(find april_tags_gazebo)/urdf/mesh1.urdf"/>
+    <arg name="april_tag_name" default="tag_box_1"/>
+
+  	<!-- tag2 -->
+    <arg name="x1" default="0.5"/>
+    <arg name="y1" default="-0.5"/>
+    <arg name="z1" default="0.1"/>
+    <arg name="roll1" default="0.0"/>
+    <arg name="pitch1" default="0.0"/>
+    <arg name="yaw1" default="0.0"/>
+
+    <arg name="urdf_tag_file1" default="$(find april_tags_gazebo)/urdf/mesh2.urdf"/>
+    <arg name="april_tag_name1" default="tag_box_2"/>
+
+    <!-- tag3 -->
+    <arg name="x3" default="0.5"/>
+    <arg name="y3" default="0.0"/>
+    <arg name="z3" default="0.4"/>
+    <arg name="roll3" default="0.0"/>
+    <arg name="pitch3" default="0.0"/>
+    <arg name="yaw3" default="0.0"/>
+
+    <arg name="urdf_tag_file3" default="$(find april_tags_gazebo)/urdf/mesh3.urdf"/>
+    <arg name="april_tag_name3" default="tag_box_3"/>
+
+    <!-- tag4 -->
+    <arg name="x4" default="0.5"/>
+    <arg name="y4" default="0.5"/>
+    <arg name="z4" default="0.3"/>
+    <arg name="roll4" default="0.0"/>
+    <arg name="pitch4" default="0.0"/>
+    <arg name="yaw4" default="0.0"/>
+
+    <arg name="urdf_tag_file4" default="$(find april_tags_gazebo)/urdf/mesh4.urdf"/>
+    <arg name="april_tag_name4" default="tag_box_4"/>
+
+    <!-- vehicle -->
+    <arg name="x5" default="0.7"/>
+    <arg name="y5" default="0.0"/>
+    <arg name="z5" default="0.0"/>
+    <arg name="roll5" default="0.0"/>
+    <arg name="pitch5" default="0.0"/>
+    <arg name="yaw5" default="0.0"/>
+
+    <arg name="urdf_tag_file5" default="$(find dif_drive_args_tags)/urdf/diff_april_tag_model.xacro"/>
+    <arg name="april_tag_name5" default="vehicle"/>
+    
+    <group ns="tag1">
+    <include file="$(find spawn_tags_tools_pkg)/launch/spawn_tags_gazebo.launch"> 
+            <arg name="x" value="$(arg x)"/>
+            <arg name="y" value="$(arg y)"/>
+            <arg name="z" value="$(arg z)"/>
+            <arg name="roll" value="$(arg roll)"/>
+            <arg name="pitch" value="$(arg pitch)"/>
+            <arg name="yaw" value="$(arg yaw)"/>
+
+            <arg name="urdf_tag_file" value="$(arg urdf_tag_file)"/>
+            <arg name="april_tag_name" value="$(arg april_tag_name)"/>
+    </include>
+    </group>
+
+    <group ns="tag2">
+     <include file="$(find spawn_tags_tools_pkg)/launch/spawn_tags_gazebo.launch"> 
+            <arg name="x" value="$(arg x1)"/>
+            <arg name="y" value="$(arg y1)"/>
+            <arg name="z" value="$(arg z1)"/>
+            <arg name="roll" value="$(arg roll1)"/>
+            <arg name="pitch" value="$(arg pitch1)"/>
+            <arg name="yaw" value="$(arg yaw1)"/>
+
+            <arg name="urdf_tag_file" value="$(arg urdf_tag_file1)"/>
+            <arg name="april_tag_name" value="$(arg april_tag_name1)"/>
+    </include>
+    </group>
+
+    <group ns="tag3">
+     <include file="$(find spawn_tags_tools_pkg)/launch/spawn_tags_gazebo.launch"> 
+            <arg name="x" value="$(arg x3)"/>
+            <arg name="y" value="$(arg y3)"/>
+            <arg name="z" value="$(arg z3)"/>
+            <arg name="roll" value="$(arg roll3)"/>
+            <arg name="pitch" value="$(arg pitch3)"/>
+            <arg name="yaw" value="$(arg yaw3)"/>
+
+            <arg name="urdf_tag_file" value="$(arg urdf_tag_file3)"/>
+            <arg name="april_tag_name" value="$(arg april_tag_name3)"/>
+    </include>
+    </group>
+
+    <group ns="tag4">
+     <include file="$(find spawn_tags_tools_pkg)/launch/spawn_tags_gazebo.launch"> 
+            <arg name="x" value="$(arg x4)"/>
+            <arg name="y" value="$(arg y4)"/>
+            <arg name="z" value="$(arg z4)"/>
+            <arg name="roll" value="$(arg roll4)"/>
+            <arg name="pitch" value="$(arg pitch4)"/>
+            <arg name="yaw" value="$(arg yaw4)"/>
+
+            <arg name="urdf_tag_file" value="$(arg urdf_tag_file4)"/>
+            <arg name="april_tag_name" value="$(arg april_tag_name4)"/>
+    </include>
+    </group>
+   <!--
+    <group ns="vehicle">
+    <include file="$(find spawn_tags_tools_pkg)/launch/spawn_tags_gazebo.launch"> 
+            <arg name="x" value="$(arg x5)"/>
+            <arg name="y" value="$(arg y5)"/>
+            <arg name="z" value="$(arg z5)"/>
+            <arg name="roll" value="$(arg roll5)"/>
+            <arg name="pitch" value="$(arg pitch5)"/>
+            <arg name="yaw" value="$(arg yaw5)"/>
+
+            <arg name="urdf_tag_file" value="$(arg urdf_tag_file5)"/>
+            <arg name="april_tag_name" value="$(arg april_tag_name5)"/>
+    </include>           
+    </group>
+    <node name="rviz" pkg="rviz" type="rviz" args="-d $(find dif_drive_args_tags)/urdf.rviz" /> -->
+</launch>
+
